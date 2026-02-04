@@ -110,7 +110,7 @@ def text_parser(string):
     'Add'
     """
     string = string.replace(" ","")
-    result = list(filter(lambda char: char != "", re.split(r'([-+x/^r()]-?)', string)))
+    result = [x for x in re.split(r'([-+x/^r()]-?)', string) if x != ""]
     for i in range(len(result)):
         if re.match(r'[-+x/^r]-', result[i]):
             result[i] = result[i][0]
